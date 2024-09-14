@@ -8,6 +8,7 @@ const nextConfig = {
   images: {
     domains: ['oblakoz.ru'],
   },
+  distDir: "build"
 };
 
 export default nextConfig;

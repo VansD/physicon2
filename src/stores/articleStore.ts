@@ -1,4 +1,3 @@
-import { makeAutoObservable } from "mobx"
 import { Article } from "@/types/article";
 import { PaginationStore } from "./paginatonStore";
 
@@ -8,7 +7,6 @@ class ArticleStore extends PaginationStore<Article>{
 
     constructor() {
         super();
-        //makeAutoObservable(this);
     }
 
     setArticles = (articles: Article[]) => {
@@ -43,26 +41,6 @@ class ArticleStore extends PaginationStore<Article>{
             }
         }
     }
-
-    // async fetchNextPage(isNext: boolean = true, rubrics?: string[]) {
-    //     if (this.currentPage < this.totalPages) {
-    //         this.setLoading(true);
-    //         const nextPage = isNext ? this.currentPage + 1 : this.currentPage - 1;
-
-    //         try {
-    //             const response = await fetch(`/api/articles?${rubrics && `rubrics=${rubrics.join("__")}&`}page=${nextPage}`);
-    //             const data = await response.json();
-
-    //             this.addArticles(data.articles);
-    //             this.setCurrentPage(nextPage);
-    //             this.setError(null)
-    //         } catch (error) {
-    //             this.setError(`Ошибка загрузки данных: ${error}`);
-    //         } finally {
-    //             this.setLoading(false);
-    //         }
-    //     }
-    // }
 }
 
 export const articleStore = new ArticleStore();

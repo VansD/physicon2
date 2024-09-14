@@ -11,7 +11,7 @@ import { Pagination } from '../common/Pagination';
 import { Loader } from '../common/Loader';
 
 const ArticlesList: React.FC<ArticlesListProps> = observer(({ initialArticles, initialTotalPages, error }) => {
-  const { fetchArticles, setCurrentPage, paginationData, setTotalPages, setArticles, articles, totalPages, isLoading } = articleStore;
+  const { fetchArticles, paginationData, setTotalPages, setArticles, articles, totalPages, isLoading } = articleStore;
   const { activeRubrics, clearActiveRubrics } = rubricStore;
 
   useEffect(() => {
@@ -43,22 +43,22 @@ const ArticlesList: React.FC<ArticlesListProps> = observer(({ initialArticles, i
     return <EmptyArticles />
 
 
-  const setCurrentPageCallback = async (page: number) => {
+  const setCurrentPageCallback = useCallback(async (page: number) => {
     clearActiveRubrics();
     await fetchArticles(page);
-  }
+  }, [])
 
-  const handlePrevChange = async () => {
+  const handlePrevChange = useCallback(async () => {
     const prevPage = paginationData.currentPage - 1;
     clearActiveRubrics();
     await fetchArticles(prevPage);
-  }
+  }, [])
 
-  const handleNextChange = async () => {
+  const handleNextChange = useCallback(async () => {
     const nextPage = paginationData.currentPage + 1;
     clearActiveRubrics();
     await fetchArticles(nextPage);
-  }
+  }, [])
 
   return (<React.Fragment>
     <div className={styles.container}>
