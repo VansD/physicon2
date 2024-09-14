@@ -8,7 +8,8 @@ const nextConfig = {
   images: {
     domains: ['oblakoz.ru'],
   },
-  distDir: "build"
+  reactStrictMode: true,
+  output: 'standalone',
 };
 
 export default nextConfig;

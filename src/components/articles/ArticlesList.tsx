@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ArticleCard from './ArticleCard';
 import styles from "@/styles/articles/articlePage.module.scss";
 import { observer } from 'mobx-react-lite';
@@ -43,22 +43,22 @@ const ArticlesList: React.FC<ArticlesListProps> = observer(({ initialArticles, i
     return <EmptyArticles />
 
 
-  const setCurrentPageCallback = useCallback(async (page: number) => {
+  const setCurrentPageCallback = async (page: number) => {
     clearActiveRubrics();
     await fetchArticles(page);
-  }, [])
+  }
 
-  const handlePrevChange = useCallback(async () => {
+  const handlePrevChange = async () => {
     const prevPage = paginationData.currentPage - 1;
     clearActiveRubrics();
     await fetchArticles(prevPage);
-  }, [])
+  }
 
-  const handleNextChange = useCallback(async () => {
+  const handleNextChange = async () => {
     const nextPage = paginationData.currentPage + 1;
     clearActiveRubrics();
     await fetchArticles(nextPage);
-  }, [])
+  }
 
   return (<React.Fragment>
     <div className={styles.container}>

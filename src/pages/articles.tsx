@@ -16,41 +16,41 @@ export interface FiltersProps {
   rubrics: Rubric[];
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  // try {
+export interface MetaTitleProps {
+  metaTitle: string;
+}
 
-    console.log(process.env.NEXT_PUBLIC_HOST + '/api/articles')
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  try {
     const response = await fetch(process.env.NEXT_PUBLIC_HOST + '/api/articles');
     const data = await response.json();
-    
-    console.log(data)
-
     const initialArticles = data.pageProps.articles;
     const rubrics = data.pageProps.rubrics;
     const initialTotalPages = data.pageProps.totalPages;
+    const metaTitle = data.pageProps.metaData.title;
 
     res.setHeader(
       'Cache-Control',
       'public, s-maxage=10, stale-while-revalidate=300'
     );
 
-    return { props: { initialArticles, rubrics, initialTotalPages } };
-  // } catch (err) {
-  //   return {
-  //     props: {
-  //       articles: [],
-  //       totalPages: 0,
-  //       error: `Ошибка при получении данных: ${err}`
-  //     },
-  //   };
-  // }
+    return { props: { initialArticles, rubrics, initialTotalPages, metaTitle } };
+  } catch (err) {
+    return {
+      props: {
+        articles: [],
+        totalPages: 0,
+        error: `Ошибка при получении данных: ${err}`
+      },
+    };
+  }
 };
 
-const ArticlesPage: React.FC<ArticlesListProps & FiltersProps> =
-  ({ initialArticles, rubrics, initialTotalPages, error }) => {
+const ArticlesPage: React.FC<ArticlesListProps & FiltersProps & MetaTitleProps> =
+  ({ initialArticles, rubrics, initialTotalPages, error, metaTitle }) => {
     return <React.Fragment>
       <Head >
-        <title>Учительская: полезные и нескучные статьи для педагога.</title>
+        <title>{metaTitle}</title>
       </Head>
       <Filters rubrics={rubrics} />
       <ArticlesList initialArticles={initialArticles} initialTotalPages={initialTotalPages} error={error}/>
