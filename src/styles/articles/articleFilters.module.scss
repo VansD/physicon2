@@ -1,0 +1,59 @@
+@import "../variables.scss";
+
+.container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  padding: 4px 8px 8px 8px;
+  scroll-padding-right: 20px;
+  scroll-padding-left: 20px;
+  overflow: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+}
+
+.filter {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  height: 32px;
+  padding: 0px 8px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.43;
+  color: #68686D;
+  border-radius: 6px;
+  background-color: $color-white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+  
+  &:hover {
+    background-color: #F1F1F1;
+  }
+
+  &.active {
+    color: rgb(56, 65, 77);
+    background-color: $color-white;
+    box-shadow: rgba(107, 117, 159, 0.3) 2px 2px 8px;
+    border-color: $color-white;
+  }
+}
+
+@media (min-width: 0px) {
+  .filter {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}

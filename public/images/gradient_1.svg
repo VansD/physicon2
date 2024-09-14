@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 285 285" style="enable-background:new 0 0 285 285;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+</style>
+<g>
+
+		<radialGradient id="SVGID_1_" cx="112.1008" cy="164.5386" r="1" gradientTransform="matrix(7.288241e-15 119.026 119.026 -7.288241e-15 -19441.8691 -13200.4121)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#86C4FF"/>
+		<stop  offset="1" style="stop-color:#8DBDEB;stop-opacity:0"/>
+		<stop  offset="1" style="stop-color:#84C3FF;stop-opacity:0"/>
+	</radialGradient>
+	<circle class="st0" cx="142.5" cy="142.5" r="142.5"/>
+</g>
+</svg>

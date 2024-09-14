@@ -1,0 +1,154 @@
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 80px;
+}
+
+body {
+    margin: 0;
+    color: #38414D;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.125;
+    font-family: Montserrat, Arial, sans-serif;
+    background-color: #F8F8F8;
+}
+
+body {
+    background-color: #F5F5F7;
+    min-width: 320px;
+    overflow-x: hidden;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #C2C2C2 #FFFFFF;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #C2C2C2;
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-track {
+    background: white;
+    border: 1px solid #C2C2C2;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.main-container {
+    min-height: 100vh;
+    position: relative;
+
+    &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url('../../public/images/gradient_1.svg') top -250px left calc(50% + 320px) no-repeat,
+            url('../../public/images/gradient_2.svg') top 11px left calc(50% + 160px) no-repeat,
+            url("../../public/images/gradient_1.svg") top 400px left calc(50% - 650px) no-repeat,
+            url("../../public/images/gradient_2.svg") top 750px left calc(50% + 600px) no-repeat;
+        background-size: 430px 430px, 200px 200px, 350px 350px, 350px 350px;
+        filter: blur(90px);
+        z-index: -1;
+    }
+}
+
+main {
+    width: 100%;
+    margin-left: auto;
+    box-sizing: border-box;
+    margin-right: auto;
+    display: flexbox;
+    flex-direction: column;
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 100%;
+    flex: 1 0 auto;
+
+}
+
+footer {
+    background-color: #242D36;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 auto;
+    
+}
+
+@media (min-width: 600px) {
+    main {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media (min-width: 0px) {
+    main {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+@media (min-width: 1160px) {
+    main {
+        max-width: 1160px;
+    }
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-style: normal;
+    src: local('Montserrat-Light'), url(../../public/fonts/Montserrat-Light.woff) format('woff');
+    font-display: swap
+}
+
+@font-face {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-style: normal;
+    src: local('Montserrat-Regular'), url(../../public/fonts/Montserrat-Regular.woff) format('woff');
+    font-display: swap
+}
+
+@font-face {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-style: normal;
+    src: local('Montserrat-Medium'), url(../../public/fonts/Montserrat-Medium.woff) format('woff');
+    font-display: swap
+}
+
+@font-face {
+    font-family: Montserrat;
+    font-weight: 600;
+    font-style: normal;
+    src: local('Montserrat-SemiBold'), url(../../public/fonts/Montserrat-SemiBold.woff) format('woff');
+    font-display: swap
+}
+
+@font-face {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: normal;
+    src: local('Montserrat-Bold'), url(../../public/fonts/Montserrat-Bold.woff) format('woff');
+    font-display: swap
+}
