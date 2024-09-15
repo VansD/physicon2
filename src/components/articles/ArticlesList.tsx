@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ArticleCard from './ArticleCard';
 import styles from "@/styles/articles/articlePage.module.scss";
 import { observer } from 'mobx-react-lite';
@@ -14,21 +14,23 @@ const ArticlesList: React.FC<ArticlesListProps> = observer(({ initialArticles, i
   const { fetchArticles, paginationData, setTotalPages, setArticles, articles, totalPages, isLoading } = articleStore;
   const { activeRubrics, clearActiveRubrics } = rubricStore;
 
-  useEffect(() => {
-    setArticles(initialArticles);
-    setTotalPages(initialTotalPages);
-  }, [initialArticles, initialTotalPages]);
+  const firstRender = useRef(true);
 
   useEffect(() => {
     const getFilteredData = async () => {
       await fetchArticles(1, activeRubrics)
     }
 
-    getFilteredData()
+    if (!firstRender.current)
+      getFilteredData()
 
   }, [activeRubrics.length]);
 
-
+  useEffect(() => {
+    setArticles(initialArticles);
+    setTotalPages(initialTotalPages);
+    firstRender.current = false;
+  }, [initialArticles, initialTotalPages]);
 
   if (error)
     return <EmptyArticles>
