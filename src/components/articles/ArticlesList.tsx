@@ -41,7 +41,7 @@ const ArticlesList: React.FC<ArticlesListProps> = observer(({ initialArticles, i
     return <Loader />
 
 
-  if (articles?.length === 0)
+  if (articles?.length === 0 && !firstRender.current)
     return <EmptyArticles />
 
 
